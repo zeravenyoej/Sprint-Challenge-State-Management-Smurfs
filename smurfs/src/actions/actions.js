@@ -13,10 +13,24 @@ export const getData = () => dispatch => {
     axios.get('http://localhost:3333/smurfs')
         .then((res)=>{
             dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data })
-            console.log('FROM ACTIONS: ', res)
+            console.log('FROM ACTIONS: ', res.data)
         })
         .catch((err)=>{
             dispatch({ type: FETCH_DATA_FAIL, payload: err })
             console.log('ERROR: ', err)
         })
 };
+
+
+// export const postData = () => dispatch => {
+//     dispatch({ type: POST_DATA_START })
+//     axios.post('http://localhost:3333/smurfs')
+//         .then((res)=>{
+//             console.log('FROM ACTIONS: ', res)
+//             dispatch({ type: POST_DATA_SUCCESS, payload: res })
+//         })
+//         .catch((err)=>{
+//             console.log('ERROR: ', err)
+//             dispatch({ type: POST_DATA_FAIL, payload: err.response})
+//         })
+// }
