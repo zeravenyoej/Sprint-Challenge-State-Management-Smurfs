@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 const Form = (props) => {
 
-    const newSmurf = {
-        name: '',
-        age: '',
+
+    const [newSmurf, setNewSmurf] = useState({
+        name: '', 
+        age: '', 
         height: ''
-    }
+    });
 
     const handleChange = (e) => {
         e.preventDefault();
+        setNewSmurf({...newSmurf, [e.target.name]: e.target.value})
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // props.postData(newSmurf);
+        props.postData(newSmurf)
     };
 
     return (
@@ -27,7 +29,6 @@ const Form = (props) => {
                     <input
                     type='text'
                     name='name'
-                    value=''
                     placeholder='name'
                     required
                     onChange={handleChange}
@@ -38,7 +39,6 @@ const Form = (props) => {
                     <input
                     type='text'
                     name='age'
-                    value=''
                     placeholder='write in 123'
                     required
                     onChange={handleChange}
@@ -49,7 +49,6 @@ const Form = (props) => {
                     <input
                     type='text'
                     name='height'
-                    value=''
                     placeholder='write in cm'
                     required
                     onChange={handleChange}

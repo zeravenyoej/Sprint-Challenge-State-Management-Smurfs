@@ -32,11 +32,11 @@ const reducer = (state = initialState, action) => {
                 ...state, 
                 fetchingError: action.payload
             };
-        case POST_DATA_START:
-            return {
-                ...state, 
-                isPosting: true
-            };
+        // case POST_DATA_START:
+        //     return {
+        //         ...state, 
+        //         isPosting: true
+        //     };
         case POST_DATA_SUCCESS: 
             return {
                 ...state,

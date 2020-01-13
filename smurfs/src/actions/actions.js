@@ -22,9 +22,8 @@ export const getData = () => dispatch => {
 };
 
 
-export const postData = (name, age, height) => dispatch => {
-    dispatch({ type: POST_DATA_START })
-    const newSmurf = {name: name, 'age': age, 'height': height}
+export const postData = (newSmurf) => dispatch => {
+    // dispatch({ type: POST_DATA_START })
     axios.post('http://localhost:3333/smurfs', newSmurf)
         .then((res)=>{
             console.log('FROM ACTIONS: ', res)
