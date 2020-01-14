@@ -1,5 +1,5 @@
 // import React from 'react';
-import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL, POST_DATA_FAIL, POST_DATA_START, POST_DATA_SUCCESS } from '../actions/actions';
+import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL, POST_DATA_FAIL, POST_DATA_SUCCESS } from '../actions/actions';
 
 const initialState = {
     smurfs: [{
@@ -25,22 +25,20 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state, 
                 smurfs: [...state.smurfs, ...action.payload],
-                isFetching: false
+                isFetching: false, 
+                fetchingError: ''
             };
         case FETCH_DATA_FAIL:
             return {
                 ...state, 
                 fetchingError: action.payload
             };
-        // case POST_DATA_START:
-        //     return {
-        //         ...state, 
-        //         isPosting: true
-        //     };
         case POST_DATA_SUCCESS: 
             return {
                 ...state,
-                isPosting: false
+                smurfs: [...state.smurfs, action.payload],
+                isPosting: false, 
+                postingError: ''
             };
         case POST_DATA_FAIL:
             return {
